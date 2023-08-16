@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import java.util.Date
 
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         //val database2 = ContactDatabase.getDatabase(this)
 
         GlobalScope.launch {
-            database.contactDao().insertContact(Contact(0,"Firoz", "9999", Date()))
+            database.contactDao().insertContact(Contact(0,"Firoz", "9999", Date(), isActive = 1))
         }
 
     }
